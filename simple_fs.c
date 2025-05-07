@@ -32,9 +32,9 @@ static int simplefs_fill_super(struct super_block *, void *, int); // <- there i
 static struct dentry *simple_mount(struct file_system_type *, int, const char *, void *data);
 
 static struct file_system_type simple_fs_type = {
-        .name           = "simplefs",
+		.name           = "simplefs",
 		.owner          = THIS_MODULE,
-        .fs_flags       = FS_USERNS_MOUNT,
+		.fs_flags       = FS_USERNS_MOUNT,
 		.mount          = simple_mount,
 		.kill_sb        = simplefs_kill_sb
 };
@@ -240,7 +240,7 @@ out:
 }
 #endif
 
-static int __init hello_2_init(void) 
+static int __init simplefs_init(void) 
 { 
 	ret = register_filesystem(&simple_fs_type);
 
@@ -252,7 +252,7 @@ static int __init hello_2_init(void)
     return 0; 
 } 
  
-static void __exit hello_2_exit(void) 
+static void __exit simplefs_exit(void) 
 { 
 	if(!ret)
 		unregister_filesystem(&simple_fs_type);
@@ -261,7 +261,7 @@ static void __exit hello_2_exit(void)
 
 } 
  
-module_init(hello_2_init); 
-module_exit(hello_2_exit); 
+module_init(simplefs_init); 
+module_exit(simplefs_exit); 
  
 MODULE_LICENSE("GPL");
