@@ -1,0 +1,15 @@
+# Produced by kernel build 
+*.order
+*.symvers
+*.ko
+*.mod.c
+*.mod
+*.mod.o
+*.o
+*.cmd
+
+# For vim
+*.swp
+
+# mount point
+mnt/
